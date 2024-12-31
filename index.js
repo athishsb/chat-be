@@ -3,6 +3,7 @@ const dotenv = require('dotenv')
 dotenv.config()
 const db = require('./config/db')
 const app = express();
+const cors = require('cors');
 const authRouter = require('./controllers/authController');
 const userRouter = require('./controllers/userController');
 const chatRouter = require('./controllers/chatController');
@@ -10,6 +11,7 @@ const messageRouter = require('./controllers/messageController');
 
 // Middleware
 app.use(express.json({ limit: "50mb" }));
+app.use(cors());
 
 const server = require('http').createServer(app);
 
